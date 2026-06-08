@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: redflag-report-live-2026
+    name: redflag-report-largey1988-08062026
     runtime: node
     plan: free
     buildCommand: npm install
