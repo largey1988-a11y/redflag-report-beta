@@ -3,7 +3,5 @@ services:
     name: redflag-report-live-2026
     runtime: node
     plan: free
-    region: frankfurt
     buildCommand: npm install
     startCommand: npm start
-    healthCheckPath: /
