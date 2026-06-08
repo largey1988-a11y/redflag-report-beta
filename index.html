@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d1d">
+  <title>RedFlag Report - Know before you buy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">!</span><span>RedFlag <strong>Report</strong></span></a>
+    <nav><a href="#report">The report</a><button id="feedback-button" class="nav-link-button">Feedback</button><button id="saved-reports-button" class="saved-btn">Saved cars <span id="saved-count">0</span></button></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Independent used-car intelligence</p>
+        <h1>Know the car.<br><em>Not the sales pitch.</em></h1>
+        <p class="intro">One clear report covering hidden faults, MOT patterns, fair value and the costs likely to come next.</p>
+        <form id="lookup-form" class="lookup">
+          <label for="registration">Enter a UK registration</label>
+          <div class="lookup-row">
+            <div class="plate-wrap"><span>GB</span><input id="registration" maxlength="8" placeholder="AB12 CDE" autocomplete="off"></div>
+            <button type="submit">Build my report <span>→</span></button>
+          </div>
+          <p id="lookup-status" class="lookup-status" role="status"></p>
+          <p>Or <button type="button" class="text-button" id="manual-search-button">find a car without the registration</button></p>
+        </form>
+        <div class="trust-row"><span>Official MOT data</span><span>Model-specific risks</span><span>Plain-English advice</span></div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orb"></div><div class="road"></div>
+        <div class="car"><div class="car-glass"></div><div class="car-body"></div><i class="wheel one"></i><i class="wheel two"></i></div>
+        <div class="float-card fc-one"><span>✓</span><div><b>No active recalls</b><small>Official record checked</small></div></div>
+        <div class="float-card fc-two"><span>!</span><div><b>1 priority inspection</b><small>Potential cost: £900</small></div></div>
+      </div>
+    </section>
+
+    <section id="report" class="report hidden">
+      <div class="report-toolbar">
+        <div><p class="eyebrow">RedFlag Report / GF18 XLE</p><p>Sample report · Updated today</p></div>
+        <div><button id="print-report" class="soft-button">Print / PDF</button><button id="save-car" class="soft-button">Save report</button><button id="checklist-button" class="dark-button">Open viewing checklist</button></div>
+      </div>
+
+      <div class="report-identity">
+        <div>
+          <div class="vehicle-tags"><span>Verified vehicle</span><span>Petrol</span><span>Manual</span></div>
+          <h2 id="vehicle-title">2018 Volkswagen Golf</h2>
+          <p id="vehicle-summary">1.5 TSI EVO SE · 64,200 miles · GF18 XLE</p>
+        </div>
+        <div class="score-premium"><div><strong id="buyer-score">78</strong><span>/100</span></div><section><span>BUYER VERDICT</span><b id="buyer-verdict">Worth considering</b><small id="buyer-verdict-detail">With one priority check</small></section></div>
+      </div>
+
+      <div class="executive-summary">
+        <div class="summary-mark">!</div>
+        <div><span class="summary-label">The 30-second view</span><h3 id="personal-summary">A good-value Golf, but inspect the cooling system before buying.</h3><p id="personal-summary-detail">Its MOT performance is above average and no recalls are recorded. The main financial risk is a known water-pump issue at this mileage.</p></div>
+        <div class="summary-action"><span>Negotiation target</span><strong id="negotiation-target">£9,600</strong><small id="seller-asks">Seller asks £9,995</small></div>
+      </div>
+
+      <div class="signal-strip">
+        <article class="signal positive" id="price-signal"><span class="signal-icon">✓</span><div><small>Price position</small><strong id="price-position">Fair</strong><p id="price-position-detail">Within market range</p></div></article>
+        <article class="signal risk" id="risk-signal"><span class="signal-icon">!</span><div><small>Priority risks</small><strong id="priority-risk-count">1 found</strong><p id="priority-risk-detail">Cooling system</p></div></article>
+        <article class="signal positive"><span class="signal-icon">✓</span><div><small>Recall status</small><strong id="recall-status">Clear</strong><p id="recall-source">No active recalls</p></div></article>
+        <article class="signal positive"><span class="signal-icon">↗</span><div><small>MOT performance</small><strong id="mot-pass-rate">79%</strong><p id="mot-pass-detail">Above model average</p></div></article>
+      </div>
+
+      <details class="score-explainer">
+        <summary><div><span class="eyebrow">Transparent scoring</span><h3>Why this car scored <b id="score-explainer-value">78/100</b></h3><p id="score-confidence">Medium confidence · model research and seller information</p></div><span>View score breakdown +</span></summary>
+        <div class="score-breakdown">
+          <div class="score-method"><strong>85</strong><span>Starting score</span><p>Every vehicle begins from the same neutral benchmark.</p></div>
+          <div id="score-factors" class="score-factors"></div>
+          <div class="score-method final"><strong id="score-final">78</strong><span>Final buyer score</span><p>Evidence is weighted by severity, relevance and source confidence.</p></div>
+        </div>
+      </details>
+
+      <div class="section-heading"><div><p class="eyebrow">Decision essentials</p><h3>Everything you need at a glance</h3></div><p>Open any section for the evidence and practical advice behind it.</p></div>
+
+      <div class="insight-grid">
+        <details class="insight-card risk-card" open>
+          <summary>
+            <span class="insight-icon">!</span>
+            <div><small>Known faults</small><h3 id="fault-summary-title">One priority issue to inspect</h3><p id="fault-summary-detail">Water pump leakage is the main concern at this mileage.</p></div>
+            <span class="summary-meta"><b id="fault-summary-cost">£650–£900</b><small>potential cost</small></span><i>+</i>
+          </summary>
+          <div class="detail-body">
+            <div class="detail-lead"><span id="lead-fault-severity" class="severity high">Priority</span><div><h4 id="lead-fault-title">Water pump and thermostat housing</h4><p id="lead-fault-reason">Leaks commonly appear between 50,000 and 80,000 miles. This vehicle sits inside that risk window.</p></div></div>
+            <div class="detail-columns"><section><h5>What to look for</h5><p id="lead-fault-inspect">Check coolant level and inspect for pink residue.</p></section><section><h5>Ask the seller</h5><p id="lead-fault-ask">Has the water pump or thermostat housing ever been replaced?</p></section></div>
+            <button id="fault-detail-button" class="inline-action" data-dialog="fault-detail">View all known model faults →</button>
+          </div>
+        </details>
+
+        <details class="insight-card">
+          <summary>
+            <span class="insight-icon value">£</span>
+            <div><small>Price & negotiation</small><h3>Fairly priced, with room to negotiate</h3><p>Comparable examples suggest a £9,400–£10,300 range.</p></div>
+            <span class="summary-meta"><b id="price-card-target">£9,600</b><small>target price</small></span><i>+</i>
+          </summary>
+          <div class="detail-body">
+            <div class="price-scale"><span>£9,400</span><div><i id="target-marker"></i><b id="seller-marker" style="left:66%">Seller<br>£9,995</b><em id="target-label" style="left:22%">Target<br>£9,600</em></div><span>£10,300</span></div>
+            <p class="detail-note" id="negotiation-advice">Start at £9,400 and use any confirmed cooling-system issue to support your offer. Do not pay above £9,800 without strong service history.</p>
+          </div>
+        </details>
+
+        <details class="insight-card">
+          <summary>
+            <span class="insight-icon positive-icon">↗</span>
+            <div><small>MOT & mileage</small><h3>Above-average test history</h3><p>No concerning mileage pattern or repeated major failure.</p></div>
+            <span class="summary-meta"><b id="mot-ring-value">79%</b><small id="mot-tests-summary">pass rate</small></span><i>+</i>
+          </summary>
+          <div class="detail-body">
+            <div class="mot-summary"><div class="ring" id="mot-ring"><span>79<small>%</small></span></div><section><h4>What the history tells us</h4><p>The model performs seven points above the all-car average. Advisories are mostly routine wear items.</p><div class="mini-stats"><span><b>6</b> tests recorded</span><span><b>0</b> dangerous defects</span><span><b>+8k</b> miles/year</span></div></section></div>
+            <button class="inline-action" data-dialog="mot-detail">See MOT pattern and advisories →</button>
+          </div>
+        </details>
+
+        <details class="insight-card">
+          <summary>
+            <span class="insight-icon service-icon">◇</span>
+            <div><small>Ownership costs</small><h3>£720 likely in the next 24 months</h3><p>Annual service now, then spark plugs at 80,000 miles.</p></div>
+            <span class="summary-meta"><b>£720</b><small>planned costs</small></span><i>+</i>
+          </summary>
+          <div class="detail-body">
+            <div class="cost-rows"><div><span><b>Annual service</b><small>Due within 1,200 miles</small></span><strong>£220–£290</strong></div><div><span><b>Spark plugs</b><small>Recommended at 80k</small></span><strong>£140–£190</strong></div><div><span><b>Timing belt inspection</b><small>Condition based</small></span><strong>£500–£750</strong></div></div>
+            <button class="inline-action" data-dialog="cost-detail">See major lifetime costs →</button>
+          </div>
+        </details>
+      </div>
+
+      <section class="inspection-guide">
+        <div class="guide-head">
+          <div><p class="eyebrow">At the viewing</p><h3>Your four-point inspection brief</h3><p>Short, specific checks based on this exact model and mileage.</p></div>
+          <button id="checklist-button-bottom" class="soft-button">Open interactive checklist</button>
+        </div>
+        <div id="dynamic-inspection-guide" class="guide-grid compact-guide">
+          <article class="guide-item priority"><div class="guide-number">01</div><div><span class="severity high">Priority</span><h4>Look for coolant leaks</h4><p>Check the level and inspect for pink residue.</p></div><strong>£650–£900</strong></article>
+          <article class="guide-item caution"><div class="guide-number">02</div><div><span class="severity medium">Check</span><h4>Test every screen function</h4><p>Pair a phone and watch for freezing or lag.</p></div><strong>£120–£750</strong></article>
+          <article class="guide-item caution"><div class="guide-number">03</div><div><span class="severity medium">Check</span><h4>Listen over rough roads</h4><p>Rear knocking can indicate worn mounts.</p></div><strong>£180–£320</strong></article>
+          <article class="guide-item caution"><div class="guide-number">04</div><div><span class="severity medium">Check</span><h4>Run the air-con</h4><p>Confirm it stays cold throughout the drive.</p></div><strong>£400–£600</strong></article>
+        </div>
+        <div class="guide-footer"><strong>Total issue exposure</strong><span>£1,350–£2,570</span><p>Only use confirmed faults when negotiating. Walk away if a proper inspection is refused.</p></div>
+      </section>
+      <p class="report-disclaimer">RedFlag Report combines official records with model-level estimates. Always verify details with the manufacturer, DVSA and a qualified mechanic.</p>
+      <footer class="beta-footer"><span>RedFlag Report private beta</span><button data-legal="privacy">Privacy</button><button data-legal="disclaimer">Important disclaimer</button><button id="footer-feedback">Send feedback</button></footer>
+    </section>
+  </main>
+
+  <dialog id="checklist">
+    <button class="close" aria-label="Close">×</button><p class="eyebrow">Viewing companion</p><h2>Golf inspection checklist</h2>
+    <label><input type="checkbox"> Engine is cold when you arrive</label><label><input type="checkbox"> No coolant leaks or pink residue</label><label><input type="checkbox"> Infotainment and Bluetooth work</label><label><input type="checkbox"> No warning lights after start-up</label><label><input type="checkbox"> Clutch pulls cleanly in a high gear</label><label><input type="checkbox"> Service history and invoices present</label>
+  </dialog>
+  <dialog id="listing-details" class="listing-dialog">
+    <button class="close listing-close" aria-label="Close">×</button>
+    <p class="eyebrow">Personalise the report</p><h2>Tell us about the advert</h2>
+    <p class="modal-intro">Four quick details let us assess the price and tailor your negotiation advice.</p>
+    <form id="listing-form">
+      <div class="listing-fields">
+        <label><span>Seller's asking price</span><div class="money-input"><b>£</b><input id="asking-price" type="number" min="500" step="50" value="9995" required></div></label>
+        <label><span>Advertised mileage</span><div class="suffix-input"><input id="advertised-mileage" type="number" min="0" step="100" value="64200" required><b>miles</b></div></label>
+        <label><span>Seller type</span><select id="seller-type"><option value="dealer">Dealer</option><option value="private">Private seller</option><option value="auction">Auction</option></select></label>
+        <label><span>Service history</span><select id="service-history"><option value="full">Full documented history</option><option value="partial">Partial history</option><option value="none">No history shown</option><option value="unknown">Not confirmed</option></select></label>
+      </div>
+      <div class="listing-note"><span>Why we ask</span><p>Price, mileage and history materially affect whether a car represents good value. You can change these later.</p></div>
+      <button type="button" id="build-personalised-report" class="dark-button listing-submit">Build personalised report →</button>
+    </form>
+  </dialog>
+  <dialog id="manual-search" class="listing-dialog">
+    <button class="close manual-close" aria-label="Close">×</button>
+    <p class="eyebrow">No registration? No problem</p><h2>Find your car</h2>
+    <p class="modal-intro">Choose a researched vehicle profile to get model-specific risks, costs and inspection advice now.</p>
+    <form id="manual-search-form">
+      <div class="listing-fields">
+        <label><span>Make</span><select id="manual-make" required></select></label>
+        <label><span>Model</span><select id="manual-model" required></select></label>
+        <label><span>Year</span><select id="manual-year" required></select></label>
+        <label><span>Fuel type</span><select id="manual-fuel" required></select></label>
+      </div>
+      <div class="profile-preview" id="profile-preview"></div>
+      <button type="button" id="use-manual-profile" class="dark-button listing-submit">Use this vehicle →</button>
+    </form>
+  </dialog>
+  <dialog id="saved-reports" class="saved-dialog">
+    <button class="close saved-close" aria-label="Close">×</button>
+    <p class="eyebrow">Your shortlist</p><h2>Saved car reports</h2>
+    <p class="modal-intro">Compare your strongest candidates before deciding which cars deserve a viewing.</p>
+    <div id="saved-reports-list" class="saved-reports-list"></div>
+    <div id="comparison-table" class="comparison-table hidden"></div>
+  </dialog>
+  <dialog id="feedback-dialog" class="feedback-dialog">
+    <button class="close feedback-close" aria-label="Close">×</button>
+    <p class="eyebrow">Private beta feedback</p><h2>Help shape RedFlag Report</h2>
+    <form id="feedback-form"><label><span>What were you trying to decide?</span><textarea id="feedback-context" required></textarea></label><label><span>What was useful or confusing?</span><textarea id="feedback-notes" required></textarea></label><label><span>Overall usefulness</span><select id="feedback-rating"><option>Very useful</option><option>Useful</option><option>Needs work</option></select></label><button type="submit" class="dark-button listing-submit">Save feedback</button></form>
+  </dialog>
+  <dialog id="legal-dialog" class="detail-modal"><button class="close legal-close" aria-label="Close">×</button><div id="legal-content"></div></dialog>
+  <dialog id="detail-modal" class="detail-modal"><button class="close detail-close" aria-label="Close">×</button><div id="detail-modal-content"></div></dialog>
+  <div id="toast" class="toast">Report saved to your shortlist</div>
+  <script src="risk-data-v3.js"></script>
+  <script src="scoring-engine-v3.js"></script>
+  <script src="app-v8.js"></script>
+</body>
+</html>
